@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Video Authenticator</title>
+</head>
+<body>
+ <div class="container">
+ {% if user.is_authenticated %}
+ <p>Welcome, {{ user.username }} | <a href="{% url 'logout' 
+%}">Logout</a></p>
+ {% else %}
+ <p><a href="{% url 'login' %}">Login</a></p>
+ {% endif %}
+ {% block content %}{% endblock %}
+ </div>
+</body>
+</html>

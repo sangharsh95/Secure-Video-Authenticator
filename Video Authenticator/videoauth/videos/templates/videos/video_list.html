@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Uploaded Videos</h1>
+<a href="{% url 'video_upload' %}">Upload New Video</a>
+<ul>
+    {% for video in videos %}
+    <li>
+        <h3>{{ video.title }}</h3>
+        <p>{{ video.description }}</p>
+        <p><b>Verification Status:</b> {{ video.verification_status }}
+            <video width="320" controls>
+                <source src="{{ video.file.url }}" type="video/mp4
+ </video>
+ </li>
+ {% empty %}
+ <li>No videos uploaded yet.</li>
+{% endfor %}
+ </ul>
+{% endblock %}
